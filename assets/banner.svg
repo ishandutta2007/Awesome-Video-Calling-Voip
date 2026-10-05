@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350" width="100%" height="100%">
+  <defs>
+    <!-- Dark Tech Gradient Background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1035" />
+    </linearGradient>
+
+    <!-- Vibrant Gradient Overlay for Accents -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <!-- Glassmorphic Card Fill -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .title {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      fill: #94a3b8;
+    }
+    .badge-text {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #38bdf8;
+    }
+    
+    /* Keyframe Animations */
+    @keyframes pulse {
+      0% { opacity: 0.3; transform: scale(0.98); }
+      50% { opacity: 0.8; transform: scale(1.02); }
+      100% { opacity: 0.3; transform: scale(0.98); }
+    }
+    @keyframes floatSlow {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes dashOffset {
+      0% { stroke-dashoffset: 50; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes signalWave {
+      0% { r: 10px; opacity: 0.8; }
+      100% { r: 45px; opacity: 0; }
+    }
+
+    .pulsing-bg {
+      animation: pulse 6s ease-in-out infinite;
+      transform-origin: center;
+    }
+    .floating-card {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+    .animated-line {
+      stroke-dasharray: 8 6;
+      animation: dashOffset 2s linear infinite;
+    }
+    .wave-1 {
+      animation: signalWave 2.5s infinite cubic-bezier(0, 0.2, 0.8, 1);
+    }
+    .wave-2 {
+      animation: signalWave 2.5s infinite cubic-bezier(0, 0.2, 0.8, 1);
+      animation-delay: 0.8s;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="350" fill="url(#bgGradient)" rx="16" />
+
+  <!-- Dynamic Glowing Orbs in Background -->
+  <circle cx="200" cy="100" r="140" fill="#3b82f6" opacity="0.15" class="pulsing-bg" filter="url(#glow)" />
+  <circle cx="1000" cy="250" r="160" fill="#8b5cf6" opacity="0.18" class="pulsing-bg" filter="url(#glow)" />
+  <circle cx="600" cy="180" r="120" fill="#ec4899" opacity="0.08" class="pulsing-bg" filter="url(#glow)" />
+
+  <!-- Network Grid Background Lines -->
+  <path d="M0,70 H1200 M0,140 H1200 M0,210 H1200 M0,280 H1200" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+  <path d="M150,0 V350 M300,0 V350 M450,0 V350 M600,0 V350 M750,0 V350 M900,0 V350 M1050,0 V350" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+
+  <!-- Animated Connecting Audio/Video Stream Lines (Behind Text) -->
+  <path d="M 150 280 Q 300 200 480 270 T 800 220 T 1050 140" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.4" class="animated-line" />
+  <path d="M 100 120 Q 400 300 700 150 T 1100 260" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.3" class="animated-line" />
+
+  <!-- Animated RTC Signal Nodes in Background -->
+  <g transform="translate(1050, 140)">
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#ec4899" stroke-width="2" class="wave-1" />
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#8b5cf6" stroke-width="2" class="wave-2" />
+    <circle cx="0" cy="0" r="5" fill="#ec4899" />
+  </g>
+
+  <!-- Foreground Content Group (Ensures elements stay crisp and readable) -->
+  <g transform="translate(80, 0)">
+    
+    <!-- Top Pill / Category Tag -->
+    <g transform="translate(0, 55)">
+      <rect width="260" height="32" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="20" cy="16" r="5" fill="#10b981" />
+      <text x="35" y="21" class="badge-text">REAL-TIME COMMUNICATION 2026</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="145" class="title">Awesome Video Calling &amp; VoIP</text>
+
+    <!-- Gradient Divider Bar -->
+    <rect x="0" y="165" width="480" height="4" rx="2" fill="url(#accentGradient)" />
+
+    <!-- Subtitle -->
+    <text x="0" y="205" class="subtitle">Curated SaaS Platforms, WebRTC Media Servers &amp; SIP Telephony</text>
+    <text x="0" y="235" class="subtitle" font-size="16" fill="#64748b">Open-Source Ecosystem • Benchmarks • Pricing • Architecture Comparison</text>
+
+    <!-- Tech Feature Tags (Pills) -->
+    <g transform="translate(0, 268)">
+      <!-- Pill 1: WebRTC -->
+      <g transform="translate(0, 0)">
+        <rect width="95" height="28" rx="8" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.3" />
+        <text x="47" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#60a5fa" text-anchor="middle">WebRTC</text>
+      </g>
+      <!-- Pill 2: SIP / VoIP -->
+      <g transform="translate(107, 0)">
+        <rect width="95" height="28" rx="8" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.3" />
+        <text x="47" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">SIP / VoIP</text>
+      </g>
+      <!-- Pill 3: SFU & MCU -->
+      <g transform="translate(214, 0)">
+        <rect width="95" height="28" rx="8" fill="#ec4899" fill-opacity="0.15" stroke="#ec4899" stroke-opacity="0.3" />
+        <text x="47" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#f472b6" text-anchor="middle">SFU / MCU</text>
+      </g>
+      <!-- Pill 4: Matrix / P2P -->
+      <g transform="translate(321, 0)">
+        <rect width="115" height="28" rx="8" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.3" />
+        <text x="57" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#34d399" text-anchor="middle">Matrix / P2P</text>
+      </g>
+    </g>
+
+    <!-- Decorative Floating Icon Card (Right Side) -->
+    <g transform="translate(860, 85)" class="floating-card">
+      <rect width="170" height="170" rx="24" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.5" filter="url(#glow)" />
+      
+      <!-- Video / Phone Icon Graphic -->
+      <g transform="translate(45, 45)">
+        <rect x="0" y="10" width="50" height="40" rx="8" fill="url(#accentGradient)" />
+        <path d="M 50 20 L 75 8 L 75 52 L 50 40 Z" fill="#ec4899" />
+        <circle cx="25" cy="30" r="8" fill="#ffffff" opacity="0.9" />
+      </g>
+
+      <!-- Connection Status Bar -->
+      <rect x="25" y="125" width="120" height="8" rx="4" fill="#ffffff" fill-opacity="0.1" />
+      <rect x="25" y="125" width="85" height="8" rx="4" fill="#10b981" />
+      <text x="85" y="152" font-family="sans-serif" font-size="11" font-weight="600" fill="#94a3b8" text-anchor="middle">RTC MESH CONNECTED</text>
+    </g>
+
+  </g>
+</svg>
